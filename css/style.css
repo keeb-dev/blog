@@ -533,7 +533,7 @@ body {
 .content h5 a,
 .content h6 a {
   background: none;
-  color: inherit;
+  color: #d5a1aa;
   text-decoration: none;
 }
 .content h1 a:hover,
