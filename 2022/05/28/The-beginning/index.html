@@ -280,9 +280,15 @@
             <i class="fas fa-envelope"></i><!--
       ---></a>
         <!--
-    --->.
+    --->|
         
       
+      <span id="counter" class="web-counter">000000</span>
+      <script lang="javascript">
+        fetch('https://counter.keeb.dev')
+          .then(response => response.json())
+          .then(data => document.getElementById("counter").textContent = data["counter"]);
+      </script>
     </p>
   
   </div>
