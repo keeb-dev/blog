@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="It’s true. But it’s for a good reason, promise. One of the best things about tiling window managers like i3m is the ability to launch a terminal from anywhere by pressing a simple key combination like">
+<meta property="og:type" content="article">
+<meta property="og:title" content="I made a keylogger">
+<meta property="og:url" content="http://keeb.dev/2022/06/12/I-made-a-keylogger/index.html">
+<meta property="og:site_name" content="keeb.dev">
+<meta property="og:description" content="It’s true. But it’s for a good reason, promise. One of the best things about tiling window managers like i3m is the ability to launch a terminal from anywhere by pressing a simple key combination like">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://keeb.dev/2022/06/12/I-made-a-keylogger/i3wm.png">
+<meta property="og:image" content="http://keeb.dev/2022/06/12/I-made-a-keylogger/desktop.png">
+<meta property="og:image" content="http://keeb.dev/2022/06/12/I-made-a-keylogger/macropad.jpg">
+<meta property="article:published_time" content="2022-06-12T23:07:22.000Z">
+<meta property="article:modified_time" content="2022-06-13T00:31:52.682Z">
+<meta property="article:author" content="keeb">
+<meta property="article:tag" content="windows">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://keeb.dev/2022/06/12/I-made-a-keylogger/i3wm.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>I made a keylogger</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">keeb.dev</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2022/06/04/On-Docker/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://keeb.dev/2022/06/12/I-made-a-keylogger/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&text=I made a keylogger"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&title=I made a keylogger"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&is_video=false&description=I made a keylogger"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=I made a keylogger&body=Check out this article: http://keeb.dev/2022/06/12/I-made-a-keylogger/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&title=I made a keylogger"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&title=I made a keylogger"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&title=I made a keylogger"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&title=I made a keylogger"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&name=I made a keylogger&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://keeb.dev/2022/06/12/I-made-a-keylogger/&t=I made a keylogger"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Enter-k"><span class="toc-number">1.</span> <span class="toc-text">Enter k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows-Programming"><span class="toc-number">2.</span> <span class="toc-text">Windows Programming</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-main-loop"><span class="toc-number">3.</span> <span class="toc-text">The main loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-finished-product"><span class="toc-number">4.</span> <span class="toc-text">The finished product</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-not-use"><span class="toc-number">5.</span> <span class="toc-text">Why not use?</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        I made a keylogger
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">keeb</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-06-12T23:07:22.000Z" itemprop="datePublished">2022-06-12</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/windows/" rel="tag">windows</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>It’s true. But it’s for a good reason, promise.</p>
+<p>One of the best things about tiling window managers like <a target="_blank" rel="noopener" href="https://i3wm.org/">i3m</a> is the ability to launch a terminal from anywhere by pressing a simple key combination like <code>alt+enter</code> and have it open in the correct place.</p>
+<p><img src="/2022/06/12/I-made-a-keylogger/i3wm.png" alt="i3wm screenshot"></p>
+
+<span style="text-align: right;font-size:8pt">
+image courtesy of <a target="_blank" rel="noopener" href="https://medium.com/@ashwinvasudevan96/moving-from-ubuntu-to-manjaro-i3-window-manager-e13cd195ed7d">ashwin @ medium</a>
+</span>
+
+
+<p>Looks pretty, right?</p>
+<p>While I haven’t exactly replicated the putting it in the right place part yet, <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/powertoys/">MS PowerToys</a> makes it easy to snap it to a particular zone once the terminal has been launched. Good enough for now.</p>
+<h2 id="Enter-k"><a href="#Enter-k" class="headerlink" title="Enter k"></a>Enter <code>k</code></h2><p><code>k</code> is a <a href="github.com/keeb-dev/k">simple program</a> that spies on the keyboard, waiting for the magic character combination.</p>
+<p>Once detected, it launches the editor of my choice.</p>
+<p>The main magic resolves around polling of the 2 keys we are interested in, the <code>Enter</code> key and the <code>Win</code> key (specifically LWIN in this case.)</p>
+<h2 id="Windows-Programming"><a href="#Windows-Programming" class="headerlink" title="Windows Programming"></a>Windows Programming</h2><p>Windows is kind of cool. I’ve been giving it a real shot to make it my main development environment over the past few months. You may remember <a href="/2022/05/28/The-beginning/">I started my journey programming</a> on Windows. Nostalgia!</p>
+<p>One of the things that makes it cool is that interacting with it is pretty straightforward through the <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/win32/api/">WIN32 API</a>. For an extra layer of fun, let’s do it in Golang.</p>
+<p>First we get the specific function we want from the win32 API. The docs do a great job describing how the keyboard and Windows interact, but to cut to the chase <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getasynckeystate">GetAsyncKeyState</a> is the API to know the specific state of a key - nada, pressed down or released.</p>
+<p>So, let’s import it.</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	user32   = syscall.NewLazyDLL(<span class="string">&quot;user32.dll&quot;</span>)</span><br><span class="line">	keystate = user32.NewProc(<span class="string">&quot;GetAsyncKeyState&quot;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>Next, define the keys we want to look at, in this case the <code>LWIN</code> and the <code>Enter</code> keys. Keycodes for all keys can be found <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes">in the docs</a></p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enterKey := <span class="number">0x0D</span></span><br><span class="line">winKey := <span class="number">0x5B</span></span><br></pre></td></tr></table></figure>
+
+<p>OK. Boilerplate is out of the way.</p>
+<h2 id="The-main-loop"><a href="#The-main-loop" class="headerlink" title="The main loop"></a>The main loop</h2><p>Now an infinite loop is needed so that the state of these keys are constantly available. Make sure to give the CPU some rest. I can’t press the combo faster than <code>50ms</code>. </p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">    enterState, _, _ := keystate.Call(<span class="type">uintptr</span>(enterKey))</span><br><span class="line">    winState, _, _ := keystate.Call(<span class="type">uintptr</span>(winKey))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> winState &gt; <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> enterState &gt; <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> !enterDown &#123;</span><br><span class="line">                fmt.Println(<span class="string">&quot;we did it!&quot;</span>)</span><br><span class="line">                enterDown = <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            enterDown = <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    time.Sleep(<span class="number">1</span> * time.Millisecond)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Wait, what’s <code>enterDown</code> ? Good question. Glad you’re paying attention. The thing is, there’s a delay between when you start to press a button and when it is released. It even takes time, however short, for a key to travel from pressed, to fully up. Windows also has something called <code>repeat</code> which repeats the character press if you hold the character downnnnnnnnnnnnnnnnnnnnnnnnn.</p>
+<p><code>k</code> doesn’t care about any of that. In fact, without the <code>enterDown</code> logic all of the other stuff just makes <code>k</code> think the button combination continues to be pressed. Resulting in hilarious outcomes like spawning 600 terminal windows.</p>
+<h2 id="The-finished-product"><a href="#The-finished-product" class="headerlink" title="The finished product"></a>The finished product</h2><p>Main logic explained. How is it all put together? Take a <a href="github.com/keeb-dev/k">look at the repo</a>. </p>
+<p>I am not sure if I will keep developing this tool. It kind of does exactly what I want it to do. It will be annoying to recompile if I decide to start using a different terminal. Or if I want to change the key combination. Or if I happen to want another macro to do something else.</p>
+<p>I have no interest in spending energy on all of the what if’s. If I change any of those things a lot I may make it configurable to some extent. But I probably won’t.</p>
+<p>How does it look?</p>
+<p><a href="/2022/06/12/I-made-a-keylogger/desktop-full.png"><img src="/2022/06/12/I-made-a-keylogger/desktop.png" alt="my desktop"></a></p>
+<h2 id="Why-not-use"><a href="#Why-not-use" class="headerlink" title="Why not use?"></a>Why not use?</h2><p>Of course, there’s a lot of tools I could be using instead of this, like <a target="_blank" rel="noopener" href="https://www.autohotkey.com/">AutoHotKey</a>. I could get a better keyboard with programmable macros. Or I could do some <a target="_blank" rel="noopener" href="https://docs.qmk.fm/#/">QMK</a> programming on my macropad?</p>
+<p><img src="/2022/06/12/I-made-a-keylogger/macropad.jpg" alt="macropad"></p>
+<p>Maybe next time :) </p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">keeb.dev</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Enter-k"><span class="toc-number">1.</span> <span class="toc-text">Enter k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows-Programming"><span class="toc-number">2.</span> <span class="toc-text">Windows Programming</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-main-loop"><span class="toc-number">3.</span> <span class="toc-text">The main loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-finished-product"><span class="toc-number">4.</span> <span class="toc-text">The finished product</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-not-use"><span class="toc-number">5.</span> <span class="toc-text">Why not use?</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://keeb.dev/2022/06/12/I-made-a-keylogger/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&text=I made a keylogger"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&title=I made a keylogger"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&is_video=false&description=I made a keylogger"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=I made a keylogger&body=Check out this article: http://keeb.dev/2022/06/12/I-made-a-keylogger/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&title=I made a keylogger"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&title=I made a keylogger"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&title=I made a keylogger"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&title=I made a keylogger"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://keeb.dev/2022/06/12/I-made-a-keylogger/&name=I made a keylogger&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://keeb.dev/2022/06/12/I-made-a-keylogger/&t=I made a keylogger"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    <!-- Copyright &copy;
+    
+    
+    2016-2022
+    keeb -->
+  </div>
+  <div class="footer-right">
+    
+    <p>
+      Find me on
+      
+      
+      
+        
+          <a class="icon" target="_blank" rel="noopener" href="https://github.com/keeb-dev" aria-label="github">
+            <i class="fab fa-github"></i><!--
+      ---></a><!--
+    ---><!--
+    --->, 
+        
+      
+        
+          <a class="icon" target="_blank" rel="noopener" href="https://twitter.com/nickstinemates" aria-label="twitter">
+            <i class="fab fa-twitter"></i><!--
+      ---></a><!--
+    ---><!--
+    ---> and 
+        
+      
+        
+          <a class="icon" target="_blank" rel="noopener" href="mailto:nick@thinktank.dev" aria-label="mail">
+            <i class="fas fa-envelope"></i><!--
+      ---></a>
+        <!--
+    --->|
+        
+      
+      <span id="counter" class="web-counter">000000</span>
+      <script lang="javascript">
+        fetch('https://counter.keeb.dev')
+          .then(response => response.json())
+          .then(data => document.getElementById("counter").textContent = data["counter"]);
+      </script>
+    </p>
+  
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
