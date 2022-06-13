@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://keeb.dev/2022/06/12/I-made-a-keylogger/desktop.png">
 <meta property="og:image" content="http://keeb.dev/2022/06/12/I-made-a-keylogger/macropad.jpg">
 <meta property="article:published_time" content="2022-06-12T23:07:22.000Z">
-<meta property="article:modified_time" content="2022-06-13T00:31:52.682Z">
+<meta property="article:modified_time" content="2022-06-13T00:35:05.173Z">
 <meta property="article:author" content="keeb">
 <meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary">
@@ -157,7 +157,7 @@ image courtesy of <a target="_blank" rel="noopener" href="https://medium.com/@as
 
 <p>Looks pretty, right?</p>
 <p>While I haven’t exactly replicated the putting it in the right place part yet, <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/powertoys/">MS PowerToys</a> makes it easy to snap it to a particular zone once the terminal has been launched. Good enough for now.</p>
-<h2 id="Enter-k"><a href="#Enter-k" class="headerlink" title="Enter k"></a>Enter <code>k</code></h2><p><code>k</code> is a <a href="github.com/keeb-dev/k">simple program</a> that spies on the keyboard, waiting for the magic character combination.</p>
+<h2 id="Enter-k"><a href="#Enter-k" class="headerlink" title="Enter k"></a>Enter <code>k</code></h2><p><code>k</code> is a <a target="_blank" rel="noopener" href="http://github.com/keeb-dev/k">simple program</a> that spies on the keyboard, waiting for the magic character combination.</p>
 <p>Once detected, it launches the editor of my choice.</p>
 <p>The main magic resolves around polling of the 2 keys we are interested in, the <code>Enter</code> key and the <code>Win</code> key (specifically LWIN in this case.)</p>
 <h2 id="Windows-Programming"><a href="#Windows-Programming" class="headerlink" title="Windows Programming"></a>Windows Programming</h2><p>Windows is kind of cool. I’ve been giving it a real shot to make it my main development environment over the past few months. You may remember <a href="/2022/05/28/The-beginning/">I started my journey programming</a> on Windows. Nostalgia!</p>
@@ -175,7 +175,7 @@ image courtesy of <a target="_blank" rel="noopener" href="https://medium.com/@as
 
 <p>Wait, what’s <code>enterDown</code> ? Good question. Glad you’re paying attention. The thing is, there’s a delay between when you start to press a button and when it is released. It even takes time, however short, for a key to travel from pressed, to fully up. Windows also has something called <code>repeat</code> which repeats the character press if you hold the character downnnnnnnnnnnnnnnnnnnnnnnnn.</p>
 <p><code>k</code> doesn’t care about any of that. In fact, without the <code>enterDown</code> logic all of the other stuff just makes <code>k</code> think the button combination continues to be pressed. Resulting in hilarious outcomes like spawning 600 terminal windows.</p>
-<h2 id="The-finished-product"><a href="#The-finished-product" class="headerlink" title="The finished product"></a>The finished product</h2><p>Main logic explained. How is it all put together? Take a <a href="github.com/keeb-dev/k">look at the repo</a>. </p>
+<h2 id="The-finished-product"><a href="#The-finished-product" class="headerlink" title="The finished product"></a>The finished product</h2><p>Main logic explained. How is it all put together? Take a <a target="_blank" rel="noopener" href="http://github.com/keeb-dev/k">look at the repo</a>. </p>
 <p>I am not sure if I will keep developing this tool. It kind of does exactly what I want it to do. It will be annoying to recompile if I decide to start using a different terminal. Or if I want to change the key combination. Or if I happen to want another macro to do something else.</p>
 <p>I have no interest in spending energy on all of the what if’s. If I change any of those things a lot I may make it configurable to some extent. But I probably won’t.</p>
 <p>How does it look?</p>
